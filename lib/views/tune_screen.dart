@@ -17,27 +17,33 @@ class TuneScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          elevation: 0,
-          backgroundColor: Colors.brown,
-          title: const Text(
-            'Just Play',
-            style: TextStyle(
-              color: Colors.white,
-            ),
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.brown,
+        title: const Text(
+          'Just Play',
+          style: TextStyle(
+            color: Colors.white,
           ),
         ),
-        body: Column(
-          children: [
-            TuneItem(tune: item[0]),
-            TuneItem(tune: item[1]),
-            TuneItem(tune: item[2]),
-            TuneItem(tune: item[3]),
-            TuneItem(tune: item[4]),
-            TuneItem(tune: item[5]),
-            TuneItem(tune: item[6]),
-          ],
-        ));
+      ),
+      body: Column(
+        children: item
+            .map(
+              (e) => TuneItem(tune: e),
+            )
+            .toList(),
+      ),
+    );
   }
 }
+
+  // List<TuneItem> getTuneItem() {
+  //   List<TuneItem> item = [];
+  //   for (var color in TuneModel) {
+  //     item.add(TuneItem(tune: color));
+  //   }
+  //   return item;
+  // }
+
